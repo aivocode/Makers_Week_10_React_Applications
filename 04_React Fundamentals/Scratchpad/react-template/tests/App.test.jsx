@@ -11,3 +11,12 @@ test("renders with the correct job and birthdate", () => {
   expect(screen.getByTestId("_job")).toHaveTextContent("Nuclear Physicist");
   expect(screen.getByTestId("_birthdate")).toHaveTextContent("2000");
 });
+
+test("renders Recipe", () => {
+  render(<App />);
+  expect(screen.getByTestId("_title")).toHaveTextContent("Finnish cinnamon buns");
+  expect(screen.getByTestId("_type")).toHaveTextContent("dessert");
+  expect(screen.getByTestId("_duration")).toHaveTextContent(60);
+});
+
+{/* <Recipe title="Finnish cinnamon buns" type="dessert" duration={60} /> */}
