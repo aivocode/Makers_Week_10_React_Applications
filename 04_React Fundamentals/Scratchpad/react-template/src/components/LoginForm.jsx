@@ -22,59 +22,70 @@ const LoginForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(
-      JSON.stringify({ username: username, password: password, phone: phone })
-    );
-    console.log(password.length)
-    if (password.length <= 8) {
+    // console.log(
+    //   JSON.stringify({ username: username, password: password, phone: phone })
+    // );
+    // console.log(password.length);
+    if (!/[A-Z]/.test(password)) {
+      console.log("Password has no uppercase characters");
+    }
+    if (password.length < 8) {
+      console.log("Password is less than 8 characters");
+    }
+    if (/[A-Z]/.test(password) && password.length >= 8) {
       fetch("http://url.com/endpoint", {
         method: "POST",
         body: JSON.stringify({ username: username, password: password }),
       });
-    } else {
-      console.log("Password is not less or equal to 8 characters");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>
-          Username:
-          <input
-            type="username"
-            name="username"
-            value={username}
-            onChange={handleUsername}
-          />
-        </label>
-      </div>
+    <>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>
+            Username:
+            <input
+              type="username"
+              name="username"
+              value={username}
+              onChange={handleUsername}
+            />
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Password:
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+            />
+          </label>
+        </div>
+
+        <PhoneInput
+          placeholder="Enter phone number"
+          value={phone}
+          onChange={setPhone}
+        />
+
+        <div>
+          <label>
+            Submit
+            <input type="submit" name="submit" />
+          </label>
+        </div>
+      </form>
 
       <div>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handlePassword}
-          />
-        </label>
+        {!/[A-Z]/.test(password) && <h2> Password has no uppercase characters</h2>}
+        {password.length < 8 && <h2> Password is less than 8 characters</h2>}
       </div>
-
-      <PhoneInput
-        placeholder="Enter phone number"
-        value={phone}
-        onChange={setPhone}
-      />
-
-      <div>
-        <label>
-          Submit
-          <input type="submit" name="submit" />
-        </label>
-      </div>
-    </form>
+    </>
   );
 };
 
