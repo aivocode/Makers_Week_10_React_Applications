@@ -13,3 +13,12 @@ test("renders with a new value of 2 ", async () => {
   await userEvent.click(screen.getByText("Increment"));
   expect(screen.getByRole("heading")).toHaveTextContent("2");
 });
+
+test("renders with a new value of 1 ", async () => {
+    render(<Counter />);
+    await userEvent.click(screen.getByText("Increment"));
+    await userEvent.click(screen.getByText("Increment"));
+    await userEvent.click(screen.getByText("Decrement"));
+    expect(screen.getByRole("heading")).toHaveTextContent("1");
+  });
+

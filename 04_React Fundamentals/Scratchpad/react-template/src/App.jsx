@@ -1,15 +1,12 @@
-
 import Profile from "./components/Profile";
 import Product from "./components/Product";
 import Recipe from "./components/Recipe";
 import Counter from "./components/Counter";
-
 import "./App.css";
 
 function App() {
   return (
     <>
-      <Counter />
       <Counter />
       <Profile name="Doge" job="Nuclear Physicist" birthdate="2000" />
 
