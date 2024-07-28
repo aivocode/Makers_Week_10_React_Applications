@@ -6,6 +6,7 @@ import ButtonListener from "./components/ButtonListener";
 import InputListener from "./components/InputListener";
 import Die from "./components/Die";
 import LoginForm from "./components/LoginForm";
+import Joke from "./components/Joke";
 import "./App.css";
 
 function App() {
@@ -29,6 +30,10 @@ function App() {
       <br />
       <br />
       <LoginForm />
+
+      <br />
+      <br />
+      <Joke />
     </>
   );
 }
