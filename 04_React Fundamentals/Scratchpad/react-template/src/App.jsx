@@ -4,6 +4,7 @@ import Recipe from "./components/Recipe";
 import Counter from "./components/Counter";
 import ButtonListener from "./components/ButtonListener";
 import InputListener from "./components/InputListener";
+import Die from "./components/Die";
 import "./App.css";
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
       <ButtonListener />
 
       <InputListener />
+
+      <Die />
     </>
   );
 }
