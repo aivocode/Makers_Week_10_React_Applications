@@ -5,6 +5,7 @@ import Counter from "./components/Counter";
 import ButtonListener from "./components/ButtonListener";
 import InputListener from "./components/InputListener";
 import Die from "./components/Die";
+import LoginForm from "./components/LoginForm";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
       <InputListener />
 
       <Die />
+
+      <br />
+      <br />
+      <LoginForm />
     </>
   );
 }
