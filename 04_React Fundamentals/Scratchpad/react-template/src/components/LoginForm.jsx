@@ -22,11 +22,18 @@ const LoginForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(JSON.stringify({ username: username, password: password, phone: phone }));
-    fetch("http://url.com/endpoint", {
-      method: "POST",
-      body: JSON.stringify({ username: username, password: password }),
-    });
+    console.log(
+      JSON.stringify({ username: username, password: password, phone: phone })
+    );
+    console.log(password.length)
+    if (password.length <= 8) {
+      fetch("http://url.com/endpoint", {
+        method: "POST",
+        body: JSON.stringify({ username: username, password: password }),
+      });
+    } else {
+      console.log("Password is not less or equal to 8 characters");
+    }
   };
 
   return (
